@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 100px; /* Accounts for fixed header */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-3 bg-gradient-to-r from-amber-600 to-amber-500 text-white rounded-md 
+           hover:from-amber-700 hover:to-amber-600 transition-all duration-300 transform hover:scale-105
+           hover:shadow-lg hover:shadow-amber-500/20
+           font-medium tracking-wide;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 border-2 border-white text-white rounded-md 
+           hover:bg-white/20 hover:border-gold-400 hover:text-gold-400
+           transition-all duration-300 transform hover:scale-105
+           font-medium tracking-wide;
+  }
+
+  .btn-learn-more {
+    @apply mt-4 px-5 py-2 bg-transparent border border-gold-400 text-gold-400 rounded-md
+           hover:bg-gold-400/10 transition-all duration-300 transform hover:scale-105
+           text-sm font-medium tracking-wide flex items-center justify-center gap-1;
+  }
+
+  .input-field {
+    @apply w-full px-5 py-4 bg-white/95 border border-gray-200 rounded-md 
+           focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent
+           hover:bg-white hover:border-amber-300
+           transition-all duration-300
+           placeholder:text-gray-400;
+  }
+
+  .fade-in {
+    @apply opacity-0 animate-[fadeIn_0.5s_ease-in_forwards];
+  }
+  
+  /* Navigation Button Styles */
+  .nav-button {
+    @apply px-4 py-2 mx-2 rounded-md text-white font-medium
+           transition-all duration-300 ease-in-out
+           hover:bg-white/10 hover:text-gold-400
+           focus:outline-none focus:ring-2 focus:ring-gold-400/50
+           active:bg-white/15;
+  }
+  
+  /* Mobile Navigation Button Styles */
+  .nav-button-mobile {
+    @apply w-full px-4 py-3 text-left rounded-md text-white font-medium
+           transition-all duration-300 ease-in-out
+           hover:bg-white/10 hover:text-gold-400
+           focus:outline-none focus:ring-2 focus:ring-gold-400/50
+           active:bg-white/15;
+  }
+  
+  /* Book Now Button */
+  .book-now-button {
+    @apply px-6 py-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white rounded-md
+           hover:from-amber-700 hover:to-amber-600 transition-all duration-300
+           transform hover:scale-105 hover:shadow-lg hover:shadow-amber-500/20
+           font-medium tracking-wide;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Background transition animations */
+@keyframes fadeInBackground {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOutBackground {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+.amenity-card {
+  @apply flex flex-col items-center p-8 bg-navy-800/50 rounded-lg backdrop-blur-sm
+         transform transition-all duration-300 hover:scale-105 hover:bg-navy-800/70
+         hover:shadow-lg hover:shadow-gold-500/10;
+}
+
+.testimonial-card {
+  @apply bg-white/10 backdrop-blur-sm p-8 rounded-lg
+         transform transition-all duration-300 hover:bg-white/15
+         hover:shadow-xl hover:shadow-gold-500/5;
+}
+
+/* Add structured data styles */
+.structured-data {
+  display: none;
+}
+
+/* Custom DatePicker Styles */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker {
+  @apply bg-white rounded-lg shadow-lg border-0 font-inter;
+}
+
+.react-datepicker__header {
+  @apply bg-navy-900 text-white border-0 rounded-t-lg;
+}
+
+.react-datepicker__current-month {
+  @apply text-white font-semibold;
+}
+
+.react-datepicker__day-name {
+  @apply text-gray-300;
+}
+
+.react-datepicker__day { @apply hover:bg-gold-400 hover:text-white rounded-full transition-colors;
+}
+
+.react-datepicker__day--selected {
+  @apply bg-gold-500 text-white rounded-full;
+}
+
+/* Gallery Image Hover Effects */
+.gallery-image {
+  @apply relative overflow-hidden rounded-lg;
+}
+
+.gallery-image img {
+  @apply transition-transform duration-500;
+}
+
+.gallery-image:hover img {
+  @apply scale-110;
+}
+
+.gallery-image::after {
+  content: '';
+  @apply absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300;
+}
+
+.gallery-image:hover::after {
+  @apply opacity-100;
+}
+
+/* Smooth Scrolling */
+/* Enhanced smooth scrolling behavior */
+:root {
+  scroll-behavior: smooth !important;
+}
+
+/* Optimize scrolling performance */
+body {
+  -webkit-overflow-scrolling: touch; /* Smooth scroll for iOS */
+  overflow-y: scroll; /* Always show scrollbar to prevent layout shift */
+  scroll-behavior: smooth !important;
+}
+
+/* Smooth scroll for anchor links */
+a[href^="#"] {
+  scroll-margin-top: 100px;
+  transition: all 0.3s ease;
+}
+
+/* Chat Widget Animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+/* Room Gallery Styles */
+.room-gallery-swiper {
+  @apply rounded-lg overflow-hidden;
+}
+
+/* Hide default Swiper navigation and pagination */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none !important;
+}
+
+/* Enhanced gallery navigation arrows - pulsating effect */
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  animation: pulse-border 2s infinite;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  opacity: 1;
+  transform: scale(1.1) translateY(-50%);
+}
+
+.swiper-pagination-bullet {
+  @apply bg-white/70 opacity-70 w-2 h-2 transition-all duration-300;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-gold-400 opacity-100 w-4;
+}
+
+/* Social Media Icons */
+.social-icon {
+  @apply text-white w-7 h-7 hover:text-gold-400 transform hover:scale-110 transition-all duration-300;
+}
+
+.social-icon:hover {
+  filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.5));
+}
+
+/* Typography Consistency */
+.section-title {
+  @apply text-4xl md:text-5xl font-playfair font-bold text-white mb-4;
+}
+
+.section-subtitle {
+  @apply text-gray-300 text-lg max-w-2xl mx-auto;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .input-field {
+    @apply text-base py-3.5 px-4;
+  }
+  
+  .btn-primary, .btn-secondary {
+    @apply px-6 py-3 text-sm;
+  }
+  
+  .nav-button-mobile {
+    @apply py-3 my-1;
+  }
+
+  .section-title {
+    @apply text-3xl;
+  }
+
+  .btn-learn-more {
+    @apply w-full;
+  }
+}
